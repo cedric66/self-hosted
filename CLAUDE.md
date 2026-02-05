@@ -2,11 +2,12 @@
 
 ## Project Overview
 
-This is a **Docker Compose-based self-hosted services platform** maintained by [atareao](https://github.com/atareao) (Lorenzo Carbonell). It contains 100+ containerized applications organized as independent, modular service directories. Each service can be deployed standalone behind either **Traefik** or **Caddy** as a reverse proxy.
+This is a **Docker Compose-based self-hosted services platform**, originally forked from [atareao/self-hosted](https://github.com/atareao/self-hosted). It contains 100+ containerized applications organized as independent, modular service directories. Each service can be deployed standalone behind either **Traefik** or **Caddy** as a reverse proxy.
 
 - **License:** MIT
-- **Primary language:** Spanish (documentation, commit messages, READMEs)
-- **Domain template:** `*.tuservidor.es` (placeholder for user's actual domain)
+- **Language:** English (commit messages, new documentation)
+- **Note:** Many existing service READMEs inherited from upstream are in Spanish. New content should be in English.
+- **Domain template:** `*.tuservidor.es` (placeholder inherited from upstream; replace with your actual domain)
 
 ## Repository Structure
 
@@ -26,7 +27,7 @@ self-hosted/
     ├── docker-compose.traefik.yml  # Traefik labels and proxy network
     ├── docker-compose.caddy.yml    # Caddy labels and proxy network
     ├── sample.env                  # Template environment variables
-    ├── README.md                   # Service-specific documentation (Spanish)
+    ├── README.md                   # Service-specific documentation
     ├── Dockerfile                  # (some services) Custom image build
     └── *.conf / *.toml / *.json    # (some services) App configuration files
 ```
@@ -139,21 +140,21 @@ networks:
 
 ### Commit Messages
 
-- **Language:** Spanish
+- **Language:** English
 - **Format:** Emoji prefix + description
 - **Emoji prefixes:**
-  - `✨` / `:sparkles:` - New feature or functionality
-  - `🐛` / `:bug:` - Bug fix
+  - `✨` - New feature or functionality
+  - `🐛` - Bug fix
   - `🎨` - Code style improvement
   - `🚀` - Release, deployment, or version update
-  - `🎉` - Celebration / major update
+  - `🎉` - Major update
   - `🔧` - Configuration change
 
 **Examples:**
 ```
-✨ Añadido soporte para nuevas variables de entorno en configuración
-:bug: Soluciona error en la validación de formularios
-🚀 Actualiza la imagen de Traefik a v3.1.0 en docker-compose.yml
+✨ Add environment variable support for new service configuration
+🐛 Fix form validation error in settings page
+🚀 Update Traefik image to v3.2.0 in docker-compose.yml
 ```
 
 ### Branch Strategy
@@ -170,7 +171,7 @@ networks:
 3. Create `docker-compose.traefik.yml` with Traefik labels
 4. Create `docker-compose.caddy.yml` with Caddy labels
 5. Create `sample.env` with at least the `FQDN` variable (use `service.tuservidor.es` as placeholder)
-6. Create `README.md` in Spanish following the existing pattern:
+6. Create `README.md` in English:
    - Brief description of the service with link to upstream project
    - Installation steps (clone, cp sample.env, sed FQDN, mkdir data)
    - Startup commands for both Caddy and Traefik variants
@@ -220,10 +221,11 @@ Per `.gitignore`:
 
 ## Notes for AI Assistants
 
-- Documentation and commit messages should be written in **Spanish**
+- Write all new documentation and commit messages in **English**
+- Existing service READMEs from upstream may be in Spanish; new or updated content should be in English
 - Use the emoji commit prefix convention described above
 - Always provide both Traefik and Caddy configurations when adding services
-- The domain placeholder is `tuservidor.es` (not `example.com`)
+- The domain placeholder is `tuservidor.es` (inherited from upstream; keep for consistency unless the owner changes it)
 - The `proxy` network is always `external: true` and must be pre-created by the reverse proxy setup
 - When creating compose files, follow the existing version format (`version: '3'` or no version for newer services)
 - Service container names should match the service directory name
